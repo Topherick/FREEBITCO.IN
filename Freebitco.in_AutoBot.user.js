@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         Freebitco.in AutoBot
-// @namespace    http://steemit.com/topherick333
+// @git hub      https://github.com/Topherick
 // @version      1.01
 // @description  feel free to donate: 1P7EX7yddNhUVzXZ8FqHVpGqv2CtoKcUxm
 // @author       Topherick
 // @match        https://freebitco.in/*
-// @grant        none
 // ==/UserScript==
 document.getElementById("free_play_link_li").innerHTML = '<a href="#" onclick="setvars()" class="free_play_link">START BOT</a>';
 
