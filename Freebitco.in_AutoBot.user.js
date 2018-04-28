@@ -1,12 +1,17 @@
 // ==UserScript==
 // @name         Freebitco.in AutoBot
-// @git hub      https://github.com/Topherick
+// @github       https://github.com/Topherick
 // @version      1.01
 // @description  feel free to donate: 1P7EX7yddNhUVzXZ8FqHVpGqv2CtoKcUxm
 // @author       Topherick
 // @match        https://freebitco.in/*
+// @require      http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
-document.getElementById("free_play_link_li").innerHTML = '<a href="#" onclick="setvars()" class="free_play_link">START BOT</a>';
+
+$(document).ready(function() {
+  setvars();
+});
+
 
 var stopped,
     min,
@@ -41,7 +46,6 @@ function setvars() {
     $('#double_your_btc_payout_multiplier').val(multiplier);
     multiply = prompt('On lose multiply by ', 1.9);
     randhilo = prompt('Bet hi, bet lo, or rand', 'rand');
-
     start();
 }
 function deexpo(num)
@@ -79,7 +83,7 @@ lastbet = 'hi';
                 {
                   randbet();
                 }
-    
+
 }
 function randbet()
 {
@@ -101,36 +105,36 @@ lastbet = 'lo';
 function double()
 {
   if (counter == betafter)
-    { 
+    {
        $('#double_your_btc_stake').val(base);
        betval = $('#double_your_btc_stake').val();
-     hilo();  
+     hilo();
     }
     else if((counter > betafter) && (betval*2 <max) || (counter > betbefore))
         {
             $('#double_your_btc_stake').val(betval*multiply);
           betval=  $('#double_your_btc_stake').val();
-            
+
             hilo();
         }
 else{
     $('#double_your_btc_stake').val(min);
     betval =$('#double_your_btc_stake').val();
-    
+
     hilo();
 }
 }
 
 function winlose()
 {
-    if ($('#double_your_btc_bet_win').html() !== '') 
+    if ($('#double_your_btc_bet_win').html() !== '')
         {
             counter = 0;
             double();
         }
-    else if ($('#double_your_btc_bet_lose').html() !== '') 
+    else if ($('#double_your_btc_bet_lose').html() !== '')
         {
-        
+
         double();
     }
 
@@ -140,7 +144,6 @@ function random() {
 }
 
 function start() {
-    document.getElementById("free_play_link_li").innerHTML = '<a href="#" onclick="stop()" class="free_play_link">STOP BOT</a>';
     stopped = false;
     hilo();
     var randspeed = (Math.random() * speed) + 500;
@@ -160,6 +163,4 @@ function stop() {
     stopped = true;
     clearInterval(interval);
     clearInterval(seedint);
-
-document.getElementById("free_play_link_li").innerHTML = '<a href="#" onclick="setvars()" class="free_play_link">START BOT</a>';
 }
