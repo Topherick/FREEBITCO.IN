@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         Freebitco.in Auto Faucet
-// @namespace    http://steemit.com/topherick333
+// @github       https://github.com/Topherick
 // @version      1.01
 // @description  feel free to donate: 1P7EX7yddNhUVzXZ8FqHVpGqv2CtoKcUxm
 // @author       Topherick
 // @match        https://freebitco.in/*
-// @grant        none
 // ==/UserScript==
 
 (function() {
