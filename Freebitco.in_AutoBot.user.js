@@ -1,17 +1,24 @@
 // ==UserScript==
 // @name         Freebitco.in AutoBot
 // @github       https://github.com/Topherick
-// @version      1.01
+// @version      1.0.1
 // @description  feel free to donate: 1P7EX7yddNhUVzXZ8FqHVpGqv2CtoKcUxm
 // @author       Topherick
 // @match        https://freebitco.in/*
-// @require      http://code.jquery.com/jquery-latest.js
+// @require http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 
-$(document).ready(function() {
-  setvars();
+$(document).ready(function(){
+    document.getElementById("free_play_link_li").innerHTML = '<a href="#" onclick="setvars()" class="free_play_link">CONFIGURE BOT</a>';
+    var elmConfig = document.getElementById('free_play_link_li');
+    elmConfig.addEventListener("click", setvars, true);
+    document.getElementById("bet_hi_button").innerHTML = '<button id="double_your_btc_bet_hi_button" onclick="start()" class="bet_hi_button_remove">Start!</a>';
+    var elmStart = document.getElementById('bet_hi_button');
+    elmStart.addEventListener("click", start, true);
+    document.getElementById("bet_lo_button").innerHTML = '<button id="double_your_btc_bet_lo_button" onclick="stop()" class="bet_lo_button_remove">Stop!</a>';
+    var elmStop = document.getElementById('bet_lo_button');
+    elmStop.addEventListener("click", stop, true);
 });
-
 
 var stopped,
     min,
@@ -46,7 +53,6 @@ function setvars() {
     $('#double_your_btc_payout_multiplier').val(multiplier);
     multiply = prompt('On lose multiply by ', 1.9);
     randhilo = prompt('Bet hi, bet lo, or rand', 'rand');
-    start();
 }
 function deexpo(num)
 {
