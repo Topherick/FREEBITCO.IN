@@ -10,7 +10,16 @@
 
 (function() {
 'use strict';
-
+$("body").append (
+    '<img id="myNewImage" src="https://gph.to/2KpRCGD">'
+);
+$("#myNewImage").css ( {
+    position:   "fixed",
+    width:      "256px",
+    height:     "256px",
+    bottom:      "0",
+    right:       "0"
+} );
 var body = $('body');
 
 var points = {};
