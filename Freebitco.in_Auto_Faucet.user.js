@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Freebitco.in Auto Faucet
 // @github       http://github.com/Topherick
-// @version      1.01
+// @version      1.0
 // @description  feel free to donate: 1P7EX7yddNhUVzXZ8FqHVpGqv2CtoKcUxm
 // @author       Topherick
 // @match        https://freebitco.in/*
@@ -62,7 +62,7 @@ reward.select = function() {
     }
 };
 body.prepend(
-    $('<div/>').attr('style',"position:fixed;top:45px;left:0;z-index:999;width:350px;background-color:black;color: white; text-align: left;")
+    $('<div/>').attr('style',"position:fixed;bottom:0px;left:0;z-index:999;width:350px;background-color:black;color: white; text-align: left;")
         .append(
             $('<div/>').attr('id','autofaucet')
                 .append($('<p/>').attr('style','text-decoration:underline;').text("freebitco.in Auto Faucet by Topherick"))
