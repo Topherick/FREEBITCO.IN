@@ -5,7 +5,7 @@
 // @description  feel free to donate: 1P7EX7yddNhUVzXZ8FqHVpGqv2CtoKcUxm
 // @author       Topherick
 // @match        https://freebitco.in/*
-// @require http://code.jquery.com/jquery-latest.js
+// @require      http://code.jquery.com/jquery-latest.js
 // ==/UserScript==
 
 (function() {
@@ -25,9 +25,9 @@ var body = $('body');
 var points = {};
 
 if ($('#free_play_form_button').is(':visible'))
-    setTimeout(function(){ $('#free_play_form_button').click();},2000);
+    setTimeout(function(){ $('#free_play_form_button').click();},Math.floor(Math.random() * 1000 + 20000)); //20000 could be changet to 2000, but on RPi or other small devices it could make problems.
 if ($('.close-reveal-modal').is(':visible'))
-    setTimeout(function(){ $('.close-reveal-modal').click(); },2000);
+    setTimeout(function(){ $('.close-reveal-modal').click(); },8000); //8000 could be changet to 2000, but on RPi or other small devices it could make problems.
 
 var reward = {};
 reward.select = function() {
@@ -68,6 +68,12 @@ reward.select = function() {
         if ($('#bonus_span_fp_bonus').length === 0)
             if (reward.points >= 4400)
                 RedeemRPProduct('fp_bonus_1000');
+            else if (reward.points >= 2800) {
+                RedeemRPProduct('fp_bonus_500');
+            }
+            else if (reward.points >= 1520) {
+                RedeemRPProduct('fp_bonus_100');
+            }
     }
 };
 body.prepend(
